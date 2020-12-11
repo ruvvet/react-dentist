@@ -1,21 +1,21 @@
 export default function Home({ procedure }) {
-    console.log('hi', procedure)
 
-    const details = () => {
+const details=[]
+
     for (const [k, v] of Object.entries(procedure)) {
-        console.log(k,v)
-      return (
-        <li>
-          {k}:{v}
-        </li>
-      );
-    }
-  };
 
-  return (
-    <>
-      <div>procedure details</div>
-      <div>{details()}</div>
-    </>
-  );
-}
+        details.push([k,v])
+
+    }
+
+    const printDetails = details.map(i => <li>{i[0]}: {i[1]} </li>)
+
+
+    return (
+        <>
+          <div>procedure details</div>
+          <ul>{printDetails}</ul>
+
+        </>
+      );
+  };
